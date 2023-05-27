@@ -1,7 +1,7 @@
 services:
   web:
-    build: .
+    image: nexusrepo1.eastus.cloudapp.azure.com:8083/dockercomposetest:##TAGS##
     ports:
-      - "8000:5000"
+      - 32921:5000
   redis:
-    image: "redis:alpine"
+    image: redis:alpine
