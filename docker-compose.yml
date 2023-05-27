@@ -3,5 +3,9 @@ services:
     image: nexusrepo1.eastus.cloudapp.azure.com:8083/dockercomposetest:##TAGS##
     ports:
       - 32921:5000
+    volumes:
+      - omervolume:/code
   redis:
     image: redis:alpine
+volumes:
+  omervolume:
