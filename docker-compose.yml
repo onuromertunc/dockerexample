@@ -4,7 +4,7 @@ services:
     ports:
       - 32921:5000
     volumes:
-      - omervolume:/code
+      - omervolume:/code/omerco
   redis:
     image: redis:alpine
 volumes:
