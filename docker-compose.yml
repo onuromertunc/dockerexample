@@ -4,8 +4,6 @@ services:
     ports:
       - 32921:5000
     volumes:
-      - omervolume:/code/omerco
+      - /home/azureuser/containerdatafiles:/code/omerco
   redis:
     image: redis:alpine
-volumes:
-  omervolume:
