@@ -1,0 +1,18 @@
+#inventory dosyasinda ansible_ssh_userpass ile login olmak icin bu yaml kullanilir.
+- hosts: devopsmachine
+  tasks:
+    - name: STOP CONTAINERS
+      ansible.builtin.shell:
+         cmd: docker-compose stop
+         chdir: /home/azureuser/deploy
+         executable: /bin/bash
+    - name: REMOVE CONTAINERS
+      ansible.builtin.shell:
+         cmd: docker-compose rm -f
+         chdir: /home/azureuser/deploy
+         executable: /bin/bash
+    - name: DEPLOY NEW CONTAINERS
+      ansible.builtin.shell:
+         cmd: docker-compose up -d
+         chdir: /home/azureuser/deploy
+         executable: /bin/bash
