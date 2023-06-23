@@ -1,0 +1,21 @@
+#inventory dosyasinde ssh private key kullanilirken bu yaml kullanilir.
+- hosts: devopsmachine
+  tasks:
+    - name: STOP CONTAINERS
+      become: true
+      ansible.builtin.shell:
+         cmd: docker-compose stop
+         chdir: /home/azureuser/deploy
+         executable: /bin/bash
+    - name: REMOVE CONTAINERS
+      become: true
+      ansible.builtin.shell:
+         cmd: docker-compose rm -f
+         chdir: /home/azureuser/deploy
+         executable: /bin/bash
+    - name: DEPLOY NEW CONTAINERS
+      become: true
+      ansible.builtin.shell:
+         cmd: docker-compose up -d
+         chdir: /home/azureuser/deploy
+         executable: /bin/bash
